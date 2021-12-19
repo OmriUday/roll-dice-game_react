@@ -1,14 +1,12 @@
 import React, { Component } from "react";
-
 import Dash from "./components/Dash/Dash";
 import Panel from "./components/Panel/Panel";
-
 import classes from "./App.module.css";
 
 class App extends Component {
   constructor (props) {
     super(props);
-    // state for the app
+    // State for the app
     this.state = {
       gameActive: true,
       activePlayer: 1,
@@ -42,7 +40,7 @@ class App extends Component {
     this.setState({ scoreToWin: event.target.value });
   }
 
-  // next player turn
+  // Next player turn
   nextPlayer = () => {
     this.setState(prevState => {
       const players = this.clonePlayer(prevState);
@@ -55,7 +53,7 @@ class App extends Component {
     });
   };
 
-  // reset state
+  // Reset state
   newGameHandler = () => {
     this.setState({
       gameActive: true,
@@ -76,17 +74,17 @@ class App extends Component {
     });
   };
 
-  //on dice roll
+  //On dice roll
   rollHandler = () => {
-    // no action is performed if game is not active
+    // No action is performed if game is not active
     if (!this.state.gameActive) return;
 
     const dice1Value = Math.floor(Math.random() * 6) + 1;
     const dice2Value = Math.floor(Math.random() * 6) + 1;
 
     if (dice1Value === 6 && dice2Value === 6) {
-      // next player's turn, componentDidUpdate will check dice value
-      // and call nextPlayer
+      // Next player's turn, componentDidUpdate will check dice value
+      // And call nextPlayer
       this.setState({ dice: [dice1Value, dice2Value] });
       this.setState(prevState => {
         const players = this.clonePlayer(prevState);
@@ -101,7 +99,7 @@ class App extends Component {
         };
       });
     } else {
-      //update the current score
+      //Update the current score
       this.setState(prevState => {
         const prevScore = prevState.players[prevState.activePlayer].current;
         const players = this.clonePlayer(prevState);
@@ -116,9 +114,9 @@ class App extends Component {
     }
   };
 
-  // handle the hold button action
+  // Handle the hold button action
   holdHandler = () => {
-    // no action is performed if game is not active
+    // No action is performed if game is not active
     if (!this.state.gameActive) return;
 
     // Add CURRENT score to the TOTAL score
@@ -138,11 +136,11 @@ class App extends Component {
     });
   };
 
-  // react life cycle method
+  // Life cycle method
   componentDidUpdate(prevProps, prevState) {
 
     if (
-      // if the total changed and the active player is the previous player
+      // If the total changed and the active player is the previous player
       this.state.activePlayer === prevState.activePlayer &&
       this.state.players[this.state.activePlayer].total !==
       prevState.players[prevState.activePlayer].total &&
@@ -163,7 +161,7 @@ class App extends Component {
     }
   }
 
-  // renders the screen
+  // Renders the screen
   render() {
     const panels = Object.keys(this.state.players).map(playerKey => {
       return (
