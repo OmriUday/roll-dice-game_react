@@ -1,0 +1,42 @@
+button.ControlButton {
+  width: 200px;
+  color: #FC4A1A;
+  background: none;
+  border: none;
+  font-family: Lato;
+  font-size: 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: bold; 
+  transition: background-color 0.3s, color 0.3s;
+}
+
+button.ControlButton:hover {
+  font-weight: 600;
+}
+button.ControlButton:hover i {
+  margin-right: 20px;
+}
+
+button.ControlButton:focus {
+  outline: none;
+}
+
+button.ControlButton i {
+  display: inline-block;
+  margin-right: 5px;
+  font-size: 22px;
+  line-height: 1;
+  vertical-align: text-top;
+  margin-top: 0px;
+  transition: margin 0.3s;
+}
+
+@media (max-width: 500px) {
+  button.ControlButton {
+    font-size: 18px;
+  }
+  button.ControlButton:hover i {
+    margin-right: 10px;
+  }
+}
