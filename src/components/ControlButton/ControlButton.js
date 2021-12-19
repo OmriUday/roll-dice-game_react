@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./ControlButton.module.css";
 
-// roll, new, hold buttons
+// Roll, New, Hold Buttons
 const controlButton = props => (
   <button className={classes.ControlButton} onClick={props.click}>
     <i className={props.icon} />

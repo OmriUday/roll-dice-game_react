@@ -8,8 +8,8 @@ const panel = props => {
   if (props.isWinner) {
     panelClasses.push(classes.Winner);
   }
-  // if panel number is equal to current active player
-  // number, set it to active
+  // If panel number is equal to current active player
+  // Number, Set it to active
   else if (props.activePlayer === props.number) {
     console.log("yes");
     panelClasses.push(classes.Active);

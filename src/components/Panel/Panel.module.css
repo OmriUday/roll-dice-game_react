@@ -32,8 +32,8 @@
 
 .Active .PlayerName::after {
   content: "\2022";
+  color: #f78733;
   font-size: 47px;
-  color: #240b36;
   display: inline-block;
   margin-bottom: 0px;
   margin-left: 5px;
